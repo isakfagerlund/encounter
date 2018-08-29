@@ -23,18 +23,28 @@ export default class ProfileScreen extends React.Component {
     })
   }
 
+  renderContent() {
+    const { navigate } = this.props.navigation;
+    if (this.state.isLoading) {
+      return <View style={{ flex: 1, justifyContent: 'center', height: "auto" }}><Spinner color="#226c54" /></View>
+    } else {
+      return <Schedule navigate={navigate} events={this.state.events} days={this.state.days} />
+    }
+
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <Header title="schedule" navigate={navigate} />
-        {!this.state.isLoading ? <FadeInView style={{ flex: 1 }} >
-          <Schedule navigate={navigate} events={this.state.events} days={this.state.days} />}
-        </FadeInView> : <View style={{ flex: 1, justifyContent: 'center', height: "auto" }}><Spinner /></View>}
+        {this.renderContent()}
       </View>
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {

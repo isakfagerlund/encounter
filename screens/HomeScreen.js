@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, ImageBackground } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground, StatusBar } from 'react-native';
 import { Button, Icon } from 'native-base';
 
 const remote = 'https://d9nqqwcssctr8.cloudfront.net/wp-content/uploads/2018/07/10070416/hsc19-championing-bg-1500x610.jpg';
@@ -21,6 +21,9 @@ export default class HomeScreen extends React.Component {
 
     return (
       <ImageBackground source={{ uri: remote }} style={styles.container}>
+        <StatusBar
+          barStyle="light-content"
+        />
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
           <Text style={styles.logo}>
             ENCOUNTER 2019

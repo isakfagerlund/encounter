@@ -1,0 +1,1 @@
+# Event app created in React Native

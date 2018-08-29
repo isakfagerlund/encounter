@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Spinner } from 'native-base';
 import sanity from '../lib/sanity'
-import FadeInView from '../components/FadeInView'
 import Header from '../components/Header'
 import Schedule from '../components/Schedule'
 
@@ -34,10 +33,10 @@ export default class ProfileScreen extends React.Component {
   }
 
   render() {
-    const { navigate } = this.props.navigation;
+    const { goBack } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <Header title="schedule" navigate={navigate} />
+        <Header title="schedule" navigate={goBack} />
         {this.renderContent()}
       </View>
     );

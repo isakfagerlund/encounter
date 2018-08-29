@@ -7,7 +7,7 @@ export default class ScheduleList extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.day}>{day}</Text>
-        {times.map((item, i) => <TouchableHighlight key={i} onPress={() => navigate('SingleEvent')}><Text style={styles.item}>{item.time} - {item.name}</Text></TouchableHighlight>)}
+        {times.map((item, i) => <TouchableHighlight key={i} onPress={() => navigate('SingleEvent', { item })}><Text style={styles.item}>{item.time} - {item.name}</Text></TouchableHighlight>)}
       </View>
     );
   }

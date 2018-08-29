@@ -12,7 +12,7 @@ export default class Header extends React.Component {
           style={{
             height: 40,
           }}
-          onPress={() => navigate('Home')}
+          onPress={() => navigate()}
         >
           <Icon style={{ color: 'white' }} name='arrow-back' />
         </Button>

@@ -1,13 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
 export default class ScheduleList extends React.Component {
   render() {
-    const { day, times } = this.props
+    const { day, times, navigate } = this.props
     return (
       <View style={styles.container}>
         <Text style={styles.day}>{day}</Text>
-        {times.map((item, i) => <Text key={i} style={styles.item}>{item.time} - {item.name}</Text>)}
+        {times.map((item, i) => <TouchableHighlight key={i} onPress={() => navigate('SingleEvent')}><Text style={styles.item}>{item.time} - {item.name}</Text></TouchableHighlight>)}
       </View>
     );
   }

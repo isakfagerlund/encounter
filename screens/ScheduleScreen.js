@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { Spinner } from 'native-base';
 import sanity from '../lib/sanity'
 import FadeInView from '../components/FadeInView'
 import Header from '../components/Header'
@@ -27,9 +28,9 @@ export default class ProfileScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Header title="schedule" navigate={navigate} />
-        <FadeInView style={{ flex: 1 }} >
-          <Schedule events={this.state.events} days={this.state.days} />
-        </FadeInView>
+        {!this.state.isLoading ? <FadeInView style={{ flex: 1 }} >
+          <Schedule navigate={navigate} events={this.state.events} days={this.state.days} />}
+        </FadeInView> : <View style={{ flex: 1, justifyContent: 'center', height: "auto" }}><Spinner /></View>}
       </View>
     );
   }

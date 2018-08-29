@@ -11,7 +11,7 @@ export default class Schedule extends React.Component {
   }
 
   render() {
-    const { events, days } = this.props
+    const { events, days, navigate } = this.props
 
     const thursdayRef = days.find(day => day.day === "Thursday")
     const fridayRef = days.find(day => day.day === "Friday")
@@ -32,9 +32,9 @@ export default class Schedule extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
-        <ScheduleList times={thursdayEvents} day="Thursday" />
-        <ScheduleList times={fridayEvents} day="Friday" />
-        <ScheduleList times={saturdayEvents} day="Saturday" />
+        <ScheduleList times={thursdayEvents} day="Thursday" navigate={navigate} />
+        <ScheduleList times={fridayEvents} day="Friday" navigate={navigate} />
+        <ScheduleList times={saturdayEvents} day="Saturday" navigate={navigate} />
       </ScrollView>
     );
   }

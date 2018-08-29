@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated } from 'react-native';
+import { Animated, Easing } from 'react-native';
 
 export default class FadeInView extends React.Component {
   state = {
@@ -11,7 +11,8 @@ export default class FadeInView extends React.Component {
       this.state.fadeAnim,            // The animated value to drive
       {
         toValue: 1,                   // Animate to opacity: 1 (opaque)
-        duration: 700,              // Make it take a while
+        duration: 700,
+        easing: Easing.ease,
       }
     ).start();                        // Starts the animation
   }

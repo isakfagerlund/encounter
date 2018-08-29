@@ -1,17 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Icon, Button } from 'native-base';
 
 export default class Header extends React.Component {
   render() {
     const { title, navigate } = this.props
     return (
       <View style={styles.header}>
-        <Button 
-          style={styles.button}
-          title="←"
-          color="white"
+        <Button
+          transparent
+          style={{
+            height: 40,
+          }}
           onPress={() => navigate('Home')}
-        />
+        >
+          <Icon style={{ color: 'white' }} name='arrow-back' />
+        </Button>
         <Text style={styles.title}>{title.toUpperCase()}</Text>
       </View>
     );
@@ -25,7 +29,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 85,
     alignSelf: 'stretch',
-    alignItems: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     backgroundColor: '#2e2e3a',
   },
   title: {
@@ -33,5 +38,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 30,
     paddingLeft: 10,
+    paddingBottom: 5,
   },
 });

@@ -1,5 +1,6 @@
 import HomeScreen from './screens/HomeScreen'
 import ScheduleScreen from './screens/ScheduleScreen'
+import TicketScreen from './screens/TicketScreen'
 import SingleEventScreen from './screens/SingleEventScreen'
 
 import {
@@ -9,6 +10,7 @@ import {
 const App = createStackNavigator({
   Home: { screen: HomeScreen },
   Schedule: { screen: ScheduleScreen },
+  Ticket: { screen: TicketScreen },
   SingleEvent: { screen: SingleEventScreen },
 });
 

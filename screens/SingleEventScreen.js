@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, WebView } from 'react-native';
 import Header from '../components/Header'
 
 export default class SingleEventScreen extends React.Component {
@@ -15,7 +15,7 @@ export default class SingleEventScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Header title={item.name} navigate={navigation.goBack} />
-        <View style={{ flex: 1, justifyContent: "center" }}>
+        <View style={{ flex: 1, justifyContent: "center", alignSelf: 'center' }}>
           <Text style={{ color: 'white', fontSize: 24 }}>{item.name}</Text>
         </View>
       </View>
@@ -26,7 +26,6 @@ export default class SingleEventScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     backgroundColor: '#2e2e3a',
   },
 });

@@ -4,37 +4,12 @@ import ScheduleList from './ScheduleList'
 
 export default class Schedule extends React.Component {
 
-  state = {
-    thursdayEvents: [],
-    fridayEvents: [],
-    saturdayEvents: [],
-  }
-
   render() {
-    const { events, days, navigate } = this.props
-
-    const thursdayRef = days.find(day => day.day === "Thursday")
-    const fridayRef = days.find(day => day.day === "Friday")
-    const saturdayRef = days.find(day => day.day === "Saturday")
-
-    let thursdayEvents = []
-    let fridayEvents = []
-    let saturdayEvents = []
-
-    if (thursdayRef !== undefined && fridayRef !== undefined && saturdayRef !== undefined) {
-      thursdayEvents = events.filter(event => event.selectedDay._ref === thursdayRef._id)
-      fridayEvents = events.filter(event => event.selectedDay._ref === fridayRef._id)
-      saturdayEvents = events.filter(event => event.selectedDay._ref === saturdayRef._id)
-    }
-
-
-
+    const { events, navigate } = this.props
 
     return (
       <ScrollView style={styles.container}>
-        <ScheduleList times={thursdayEvents} day="Thursday" navigate={navigate} />
-        <ScheduleList times={fridayEvents} day="Friday" navigate={navigate} />
-        <ScheduleList times={saturdayEvents} day="Saturday" navigate={navigate} />
+        <ScheduleList events={events} navigate={navigate} />
       </ScrollView>
     );
   }

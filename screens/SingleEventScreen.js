@@ -16,7 +16,7 @@ export default class SingleEventScreen extends React.Component {
       <View style={styles.container}>
         <Header title={item.name} navigate={navigation.goBack} />
         <View style={{ flex: 1, justifyContent: "center" }}>
-          <Text style={{ color: 'white', fontSize: 18 }}>{item.name} - {item.time}</Text>
+          <Text style={{ color: 'white', fontSize: 24 }}>{item.name}</Text>
         </View>
       </View>
     );

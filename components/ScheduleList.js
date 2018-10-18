@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import moment from 'moment'
 
 export default class ScheduleList extends React.Component {
   render() {
-    const { day, times, navigate } = this.props
+    const { events, navigate } = this.props
     return (
       <View style={styles.container}>
-        <Text style={styles.day}>{day}</Text>
-        {times.map((item, i) => <TouchableHighlight key={i} onPress={() => navigate('SingleEvent', { item })}><Text style={styles.item}>{item.time} - {item.name}</Text></TouchableHighlight>)}
+        <Text style={styles.day}>Test</Text>
+        {events.map((item, i) => <TouchableHighlight key={i} onPress={() => navigate('SingleEvent', { item })}><Text style={styles.item}>{item.name} - {moment(item.datetime).format("dddd")}</Text></TouchableHighlight>)}
       </View>
     );
   }

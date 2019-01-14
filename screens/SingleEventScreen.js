@@ -26,6 +26,6 @@ export default class SingleEventScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2e2e3a',
+    backgroundColor: '#333',
   },
 });

@@ -9,7 +9,7 @@ export default class Schedule extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
-        <ScheduleList events={events} navigate={navigate} />
+        {events.map((item, i) => <ScheduleList key={i} event={item} navigate={navigate} />)}
       </ScrollView>
     );
   }

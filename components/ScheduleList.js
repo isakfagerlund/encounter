@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   day: {
-    backgroundColor: '#28dbb7',
+    backgroundColor: '#fc8503',
     alignSelf: 'stretch',
     padding: 15,
     fontWeight: 'bold',

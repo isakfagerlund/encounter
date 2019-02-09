@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Text, ImageBackground, StatusBar, WebView, Linking } from 'react-native';
+import { View, StyleSheet, Text, ImageBackground, StatusBar, Image, Linking } from 'react-native';
 import { Button, Icon } from 'native-base';
-
-
-const remote = 'https://d9nqqwcssctr8.cloudfront.net/wp-content/uploads/2018/07/10070416/hsc19-championing-bg-1500x610.jpg';
+import { Video, Asset } from 'expo'
+const videoURI = Asset.fromModule(require('./bg.mp4')).uri;
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -19,28 +18,27 @@ export default class HomeScreen extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
-
     return (
       <ImageBackground style={styles.container}>
         <StatusBar
           barStyle="light-content"
         />
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-          <Text style={styles.logo}>
-            ENCOUNTER 2019
-          </Text>
-          <Text style={styles.description}>
-            DO IT AGAIN
-          </Text>
+        <View style={{ width: 350, height: 300, zIndex: 10, top: 50, flex: 1, justifyContent: 'center', alignSelf: 'center', alignItems: 'center' }} >
+          <Image
+            source={require('./logo.png')}
+            style={{ width: 350, height: "100%" }}
+          />
         </View>
-        {/* <WebView
-          source={{
-            uri: 'https://www.youtube.com/embed/Eot4ZOUUNRI?modestbranding=1&autohide=1&showinfo=0&controls=0',
-          }}
-          scalesPageToFit
-          javaScriptEnabled
-          style={{ flex: 3, alignSelf: 'stretch', margin: 20, marginTop: 100 }}
-        /> */}
+        <Video
+          source={{ uri: videoURI }}
+          rate={1.0}
+          volume={1.0}
+          isMuted={true}
+          resizeMode="cover"
+          shouldPlay
+          isLooping
+          style={{ position: "absolute", zIndex: 0, top: 0, width: "100%", height: "100%" }}
+        />
         <View style={{ flex: 1, justifyContent: 'center', alignSelf: 'center', alignItems: 'center' }} >
           <Button
             transparent
@@ -54,7 +52,7 @@ export default class HomeScreen extends React.Component {
             transparent
             style={styles.btn}
             onPress={() =>
-              Linking.openURL('https://www.eventbrite.com/e/react-day-berlin-2018-tickets-46481540539?aff=ebdssbdestsearch')
+              Linking.openURL('https://www.eventbrite.co.uk/e/encounter-conference-2019-tickets-51973281484?utm-medium=discovery&utm-campaign=social&utm-content=attendeeshare&aff=escb&utm-source=cp&utm-term=listing')
             }>
             <Text style={{ color: '#333' }} >Go to Tickets </Text><Icon name='basket' style={{ color: '#333', marginRight: 0 }} />
           </Button>
